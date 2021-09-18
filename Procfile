@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn [nutri].wsgi
+web: gunicorn nutri.wsgi
