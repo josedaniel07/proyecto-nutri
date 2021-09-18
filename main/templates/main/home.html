@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h3> Hola {{ user.get_full_name }} </h3>
+    <p>
+      <a href="{% url 'perfil' user.pk %}">Mi Perfil</a>
+    </p>
+    <p>
+      <a href="{% url 'logout' %}">Cierra Sesion</a>
+    </p>
+    <p>
+      <a href="{% url 'menu-detail' %}">Compra un Plan Nutricional</a>
+    </p>
+    {% else %}
+    <h3> Hola </h3>
+    <p>
+      <a href="{% url 'login' %}">Inicia Sesion</a> o
+      <a href="{% url 'register' %}">Registrate</a>
+    </p>
+    {% endif %}
+{% if messages %}
+    {% for message in messages %}
+    <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %}">
+        <button class="delete"></button>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+&nbsp
+    <ul>
+      <li><a href="{% url 'plato-list' %}">Ver Lista de Platos Completa</a></li>
+    </ul>
+{% endblock %}

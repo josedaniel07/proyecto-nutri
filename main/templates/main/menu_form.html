@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3 class="title"> Checkout </h3>
+    <div class="block">
+        <h5 class="subtitle"> Completa tus datos </h5>
+        <form method="post">
+          {% csrf_token %}
+            <div class="field">
+                <label class="label" for="id_alimentacion">Tipo de Alimentación:</label>
+                <div class="control">
+                    <div class="select">
+                        <select name="alimentacion" id="id_alimentacion">
+                            <option value=1>Vegano</option>
+                            <option value=2>Vegetariano</option>
+                            <option value=3>Carne</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label " for="id_fecha_fin">Fecha de Fin:</label>
+                <div class="control">
+                    <input class="input" id="id_fecha_fin" type="text" name="fecha_fin" placeholder="YYYY-MM-DD">
+                </div>
+            </div>
+
+          <input type="submit" value="Submit" class="button is-info">
+        </form>
+    </div>
+    <hr>
+    <div class="content">
+        <ul>
+          <li><a href="{% url 'home' %}">Inicio</a></li>
+        </ul>
+    </div>
+{% endblock %}

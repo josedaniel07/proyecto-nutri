@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="title">{{ user.get_full_name}}</h1>
+<h3>Nombre de Usuario: {{ user.get_username}}</h3>
+<h3>DNI: {{ user.profile.documento_identidad}}</h3>
+<h3>Talla: {{ user.profile.talla}}</h3>
+<h3>Edad: {{ user.profile.edad}}</h3>
+<h3>Peso: {{ user.profile.peso}}</h3>
+<h3>Objetivo: {{ user.profile.objetivo}}</h3>
+<h3>Alimentación: {{ user.profile.alimentacion}}</h3>
+
+<h3> Calorías para bajar de peso: {{ user.profile.bajarpeso }} </h3>
+<h3> Calorías para mantener su peso: {{ user.profile.mantenerpeso }} </h3>
+<h3> Calorías para subir de peso: {{ user.profile.subirpeso }} </h3>
+<ul>
+      <li><a href="{% url 'perfil-update' user.pk %}">Ajustar medidas</a></li>
+    </ul>
+&nbsp
+    <ul>
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+    </ul>
+{% endblock %}

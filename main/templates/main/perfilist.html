@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+        <h3 class="title">Clientes</h3>
+        <ul>
+            {%for cliente in  object_list%}
+            <li>
+                <a href="{%url 'cliente-detail' cliente.pk %}">{{cliente.nombre}}</a>
+            </li>
+            {%endfor%}
+        </ul>
+        <ul>
+           &nbsp
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+        </ul>
+{% endblock %}
