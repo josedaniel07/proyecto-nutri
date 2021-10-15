@@ -6,12 +6,17 @@
 <h3>Talla: {{ user.profile.talla}}</h3>
 <h3>Edad: {{ user.profile.edad}}</h3>
 <h3>Peso: {{ user.profile.peso}}</h3>
-<h3>Objetivo: {{ user.profile.objetivo}}</h3>
-<h3>Alimentación: {{ user.profile.alimentacion}}</h3>
+<h3>Objetivo: {{ user.profile.get_objetivo_display}}</h3>
+<h3>Alimentación: {{ user.profile.get_alimentacion_display}}</h3>
+<h3> Nivel de Actividad: {{ user.profile.get_nivelactividad_display}} </h3>
+<h3> Calorías objetivo: {{ user.profile.caloriasobjetivo}} </h3>
+<h3> Calorías de proteinas necesarias: {{ user.profile.proteinas_necesarias}} </h3>
+<h3> Calorías de grasas necesarias: {{ user.profile.grasas_necesarias}} </h3>
+<h3> Calorías de carbohidratos necesarias: {{ user.profile.carbos_necesarios}} </h3>
 
-<h3> Calorías para bajar de peso: {{ user.profile.bajarpeso }} </h3>
-<h3> Calorías para mantener su peso: {{ user.profile.mantenerpeso }} </h3>
-<h3> Calorías para subir de peso: {{ user.profile.subirpeso }} </h3>
+<h3> Calorías para bajar de peso: {{ user.profile.caloriasbajar }} </h3>
+<h3> Calorías para mantener su peso: {{ user.profile.caloriasdiarias }} </h3>
+<h3> Calorías para subir de peso: {{ user.profile.caloriassubir }} </h3>
 <ul>
       <li><a href="{% url 'perfil-update' user.pk %}">Ajustar medidas</a></li>
     </ul>

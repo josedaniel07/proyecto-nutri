@@ -1,32 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
     <h1 class="title">{{ object.nombre }}</h1>
-    <div class="columns">
-        {% for image in object.images.all %}
-        <div class="column is-3">
-            <figure class="image is-square">
-                <a href="{{ image.image.url }}">
-                    <img src="{{ image.image.url }}" alt="No hay imagen disponible">
-                </a>
-            </figure>
-        </div>
-        {% empty %}
-        <div class="column content">
-            <p>Aún no hay imágenes disponibles</p>
-        </div>
-        {% endfor %}
-    </div>
+{{ object.image }}
     <ul>
-      <li><strong>Calorías:</strong> {{ object.calorias }} $ </li>
+      <li><strong>Categoría:</strong> {{ object.categoria }}  </li>
+      <li><strong>Calorías:</strong> {{ object.calorias }}  </li>
+      <li><strong>Proteínas:</strong> {{ object.proteinas }}  </li>
+      <li><strong>Grasas:</strong> {{ object.grasas }}  </li>
+      <li><strong>Carbohidratos:</strong> {{ object.carbos }}  </li>
       <li><strong>Descripcion:</strong> {{ object.descripcion }}</li>
+      <li><strong>Ingredientes:</strong> {{ object.ingredientes }}</li>
       <li><strong>Receta:</strong> {{ object.receta }}</li>
-      <li><strong>Tipo de Plato:</strong> {{ object.alimentacion }}</li>
-      <li><strong>Proveedor: </strong><a href="{%url 'proveedor-detail' object.proveedor.pk %}">{{object.proveedor}}</a></li>
+      <li><strong>Tipo de Plato:</strong> {{ object.get_alimentacion_display }}</li>
+      <li><strong>Proveedor: </strong>{{object.proveedor}}</a></li>
     </ul>
       &nbsp
 &nbsp
     <ul>
-      <li><a href="{% url 'plato-list' %}">Ver Lista de Platos</a></li>
+      <a href="javascript:history.back()"> Volver Atrás</a>
       <li><a href="{% url 'home' %}">Inicio</a></li>
     </ul>
 {% endblock %}

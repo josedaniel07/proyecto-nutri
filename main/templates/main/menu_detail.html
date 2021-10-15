@@ -9,7 +9,7 @@
               <li> <strong>Cliente:</strong> {{ object.profile.user.get_full_name }} </li>
               <li> <strong>Fecha Creación:</strong> {{ object.fecha_creacion }} </li>
               <li> <strong>Estado:</strong> {{ object.estado }} </li>
-              <li> <strong>Tipo de Menú:</strong> {{ object.alimentacion }} </li>
+              <li> <strong>Tipo de Menú:</strong> {{ object.get_alimentacion_display }} </li>
             </ul>
         </div>
     </div>

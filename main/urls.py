@@ -14,4 +14,7 @@ urlpatterns = [
     path('checkout/<int:pk>', views.MenuUpdateView.as_view(), name='menu-update'),
     path('payment/', views.PaymentView.as_view(), name='payment'),
     path('complete_payment/', views.CompletePaymentView.as_view(), name='complete-payment'),
+    path('menu_list/', views.MenuListView.as_view(), name='menu-list'),
+    path('menu_cliente/<int:pk>', views.MenuCliente.as_view(), name='menu-cliente'),
+    path('last_menu_cliente/<int:pk>', views.UltimoMenuCliente.as_view(), name='last-menu-cliente'),
 ]

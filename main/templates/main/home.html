@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+    <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %}">
+        <button class="delete"></button>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
     {% if user.is_authenticated %}
     <h3> Hola {{ user.get_full_name }} </h3>
     <p>
@@ -12,6 +20,12 @@
     <p>
       <a href="{% url 'menu-detail' %}">Compra un Plan Nutricional</a>
     </p>
+    <p>
+      <a href="{% url 'menu-list' %}">Mira tus planes nutricionales</a>
+    </p>
+    <p>
+      <a href="{% url 'last-menu-cliente' user.pk %}">Mira tu último plan comprado</a>
+    </p>
     {% else %}
     <h3> Hola </h3>
     <p>
@@ -19,16 +33,6 @@
       <a href="{% url 'register' %}">Registrate</a>
     </p>
     {% endif %}
-{% if messages %}
-    {% for message in messages %}
-    <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %}">
-        <button class="delete"></button>
-        {{ message }}
-    </div>
-    {% endfor %}
-{% endif %}
+
 &nbsp
-    <ul>
-      <li><a href="{% url 'plato-list' %}">Ver Lista de Platos Completa</a></li>
-    </ul>
 {% endblock %}

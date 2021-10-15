@@ -2,9 +2,9 @@ VEGETARIANO = 2
 VEGANO = 1
 CARNE = 3
 ALIMENTACION_CHOICES = [
-    (VEGETARIANO, 'Opción Vegana'),
-    (VEGANO, 'Opción Vegetariana'),
-    (CARNE, 'Opción con Carne')
+    (VEGETARIANO, 'Vegana'),
+    (VEGANO, 'Vegetariana'),
+    (CARNE, 'Carne')
 ]
 
 BAJAACTIVIDAD = 1.2
@@ -25,9 +25,9 @@ GENERO_CHOICES = [
     (FEMENINO, 'Femenino')
 ]
 
-bajar = 1
-mantener = 2
-subir = 3
+bajar = -500
+mantener = 0
+subir = 500
 OBJETIVO_CHOICES = [
     (bajar, 'Bajar de peso'),
     (mantener, 'Mantener tu peso'),

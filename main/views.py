@@ -104,7 +104,7 @@ class MenuDetailView(DetailView):
     # Obten el cliente
     user_profile = Profile.objects.get(user=self.request.user)
     # Obtén/Crea un/el pedido en proceso (EP) del usuario
-    menu, created = Menu.objects.get_or_create(profile=user_profile, estado='No Pagado')
+    menu, created = Menu.objects.get_or_create(profile=user_profile, estado='No Pagado', alimentacion=user_profile.alimentacion)
     return menu
 
 class MenuUpdateView(UpdateView):
@@ -140,7 +140,34 @@ class CompletePaymentView(View):
     menu = Menu.objects.get(profile=user_profile, estado='No Pagado')
     # Cambia el estado del pedido
     menu.estado = 'Pagado'
+    menu.crear_menu()
     # Guardamos los cambios
     menu.save()
     messages.success(request, 'Gracias por tu compra! Este es el inicio de una nueva vida saludable.')
     return redirect('home')
+
+class MenuListView(ListView):
+  model = Menu
+  template_name = "main/munu_list.html"
+
+  def get_queryset(self):
+    user_profile = Profile.objects.get(user=self.request.user)
+    if user_profile is not None:
+      object_list = Menu.objects.filter(profile=user_profile, estado="Pagado").order_by('-fecha_creacion')
+      return object_list
+    else:
+      return Menu.objects.all()
+
+class MenuCliente(DetailView):
+  model = Menu
+  template_name = 'main/menu_cliente.html'
+
+class UltimoMenuCliente(DetailView):
+  model = Menu
+  template_name = 'main/menu_cliente.html'
+  def get_object(self):
+    # Obten el cliente
+    user_profile = Profile.objects.get(user=self.request.user)
+    # Obtén/Crea un/el pedido en proceso (EP) del usuario
+    menu = Menu.objects.filter(profile=user_profile, estado='Pagado').last()
+    return menu
