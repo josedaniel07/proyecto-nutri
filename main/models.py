@@ -125,7 +125,7 @@ class Menu(models.Model):
                 self.menu[dia].append(comida)
         return self.menu
     def menu_del_dia(self):
-        return self.menu[self.calcular_dias() - self.dias_restantes()]
+        return self.menu[self.dias_restantes() -1]
     def desayuno(self):
         return self.menu_del_dia()[0]
     def media_mañana(self):
