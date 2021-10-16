@@ -57,8 +57,9 @@ class RegistrationView(FormView):
     peso = form.cleaned_data['peso']
     nivelactividad = form.cleaned_data['nivelactividad']
     alimentacion = form.cleaned_data['alimentacion']
+    objetivo = form.cleaned_data['objetivo']
     user_profile = Profile.objects.create(user=user, documento_identidad=documento_identidad,
-                                          edad=edad, talla=talla, genero=genero, peso=peso, nivelactividad=nivelactividad, alimentacion=alimentacion)
+                                          edad=edad, talla=talla, genero=genero, peso=peso, nivelactividad=nivelactividad, alimentacion=alimentacion, objetivo=objetivo)
     user_profile.save()
     # Login the user
     login(self.request, user)

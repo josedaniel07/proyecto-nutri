@@ -45,6 +45,7 @@ class UserForm(UserCreationForm):
         (CARNE, 'Opción con Carne'),
     ]
     alimentacion = forms.ChoiceField(choices=ALIMENTACION_CHOICES)
+    objetivo = forms.ChoiceField(choices=OBJETIVO_CHOICES)
 
     class Meta:
         model = User
@@ -59,4 +60,5 @@ class UserForm(UserCreationForm):
         'peso',
         'nivelactividad',
         'alimentacion',
+        'objetivo',
         ]
