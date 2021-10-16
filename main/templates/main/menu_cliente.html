@@ -11,15 +11,13 @@
       <li><strong>Estado del Plan:</strong> {{ object.estado }}</li>
       <li><strong>Precio del Plan:</strong> {{ object.precio }} $</li>
       <li><strong>Objetivo del Plan:</strong> {{ object.profile.get_objetivo_display}}</li>
-      <li><strong>Menu:</strong> {{ object.menu}}</li>
-      <li><strong>Menu del Día:</strong> {{ object.menu_del_dia}}</li>
+      <li><strong>Menu del Día:</strong></li>
       <li><strong>Desayuno:</strong> <a href="{% url 'plato-detail' object.desayuno.pk%}">{{ object.desayuno.nombre}} | {{ object.desayuno.calorias}} calorías</a></li>
       <li><strong>Media Mañana:</strong> <a href="{% url 'plato-detail' object.media_mañana.pk%}">{{ object.media_mañana.nombre}} | {{ object.media_mañana.calorias}} calorías</a></li>
       <li><strong>Comida:</strong> <a href="{% url 'plato-detail' object.comida.pk%}">{{ object.comida.nombre}} | {{ object.comida.calorias}} calorías</a></li>
       <li><strong>Merienda:</strong> <a href="{% url 'plato-detail' object.merienda.pk%}">{{ object.merienda.nombre}} | {{ object.merienda.calorias}} calorías</a></li>
       <li><strong>Cena:</strong> <a href="{% url 'plato-detail' object.cena.pk%}">{{ object.cena.nombre}} | {{ object.cena.calorias}} calorías</a></li>
       <li><strong>Recena:</strong> <a href="{% url 'plato-detail' object.recena.pk%}">{{ object.recena.nombre}} | {{ object.recena.calorias}} calorías</a></li>
-      <li><strong>Largo:</strong> {{ object.largo }}</li>
     </ul>
     <hr>
     <ul>
