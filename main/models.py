@@ -125,7 +125,11 @@ class Menu(models.Model):
                 self.menu[dia].append(comida)
         return self.menu
     def menu_del_dia(self):
+<<<<<<< HEAD
         return self.menu[self.dias_restantes()-1]
+=======
+        return self.menu[0]
+>>>>>>> bc1cae59a2d88e25b9e19d299f47a9519999f43b
     def desayuno(self):
         return self.menu_del_dia()[0]
     def media_mañana(self):
