@@ -9,9 +9,38 @@
   <body>
   <section class="section">
     <div class="container">
-      <h1 class="title is-1"> Nutri+ </h1>
+      <h1 > <center><img src="https://scontent.flim17-1.fna.fbcdn.net/v/t1.15752-9/251692227_376024827590883_1312138309889741976_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=ae9488&_nc_ohc=aZmZ2lj8G2oAX_fOD0j&_nc_ht=scontent.flim17-1.fna&oh=2ace1d9dec6616033d19bf2b0cd0a10b&oe=61A57F73" width="150" height="100"/></center> </h1>
+      {% if messages %}
+    {% for message in messages %}
+    <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %}">
+        <button class="delete"></button>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+    {% if user.is_authenticated %}
+
+<div class="tabs  is-toggled is-fullwidth">
+  <ul>
+    <li> <a href="{% url 'perfil' user.pk %}" >Perfil: {{ user.get_full_name }} </a> </li>
+    <li><a href="{% url 'menu-list' %}">Planes Nutricionales</a></li>
+    <li><a href="{% url 'last-menu-cliente' user.pk %}">Último Plan Nutricional</a></li>
+    <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+  </ul>
+</div>
+
+    {% else %}
+<div class="tabs  is-toggled is-fullwidth">
+  <ul>
+    <li> <a href="{% url 'login' %}" >Inicia Sesión </a> </li>
+    <li><a href="{% url 'register' %}">Registrate</a></li>
+  </ul>
+</div>
+    {% endif %}
       <hr>
       {% block content %}
+
+
       {% endblock %}
     </div>
   </section>

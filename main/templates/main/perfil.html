@@ -1,25 +1,65 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="title">{{ user.get_full_name}}</h1>
-<h3>Nombre de Usuario: {{ user.get_username}}</h3>
-<h3>DNI: {{ user.profile.documento_identidad}}</h3>
-<h3>Talla: {{ user.profile.talla}}</h3>
-<h3>Edad: {{ user.profile.edad}}</h3>
-<h3>Peso: {{ user.profile.peso}}</h3>
-<h3>Objetivo: {{ user.profile.get_objetivo_display}}</h3>
-<h3>Alimentación: {{ user.profile.get_alimentacion_display}}</h3>
-<h3> Nivel de Actividad: {{ user.profile.get_nivelactividad_display}} </h3>
-<h3> Calorías objetivo: {{ user.profile.caloriasobjetivo}} </h3>
-<h3> Calorías de proteinas necesarias: {{ user.profile.proteinas_necesarias}} </h3>
-<h3> Calorías de grasas necesarias: {{ user.profile.grasas_necesarias}} </h3>
-<h3> Calorías de carbohidratos necesarias: {{ user.profile.carbos_necesarios}} </h3>
+<center>
+<p class="title is-2">{{ user.get_full_name}}</p>
+<p class="subtitle is-4"> <a href="{% url 'perfil-update' user.pk %}">Editar Perfil</a></p>
+</center>
+<br>
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calorías para bajar de peso</p>
+      <p class="title">{{ user.profile.caloriasbajar }}</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calorías para mantener su peso</p>
+      <p class="title">{{ user.profile.caloriasdiarias }}</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calorías para subir de peso</p>
+      <p class="title">{{ user.profile.caloriassubir }}</p>
+    </div>
+  </div>
 
-<h3> Calorías para bajar de peso: {{ user.profile.caloriasbajar }} </h3>
-<h3> Calorías para mantener su peso: {{ user.profile.caloriasdiarias }} </h3>
-<h3> Calorías para subir de peso: {{ user.profile.caloriassubir }} </h3>
-<ul>
-      <li><a href="{% url 'perfil-update' user.pk %}">Ajustar medidas</a></li>
-    </ul>
+</nav>
+<p class="title is-4">Información Personal</p>
+<h3><strong>Nombre de Usuario:</strong> {{ user.get_username}}</h3>
+<h3><strong>DNI:</strong> {{ user.profile.documento_identidad}}</h3><br>
+<p class="title is-4">Medidas</p>
+<h3><strong>Talla:</strong> {{ user.profile.talla}}</h3>
+<h3><strong>Edad:</strong> {{ user.profile.edad}}</h3>
+<h3><strong>Peso:</strong> {{ user.profile.peso}}</h3><br>
+<p class="title is-4">Estilo de Vida</p>
+<h3><strong>Objetivo:</strong> {{ user.profile.get_objetivo_display}}</h3>
+<h3><strong>Alimentación:</strong> {{ user.profile.get_alimentacion_display}}</h3>
+<h3> <strong>Nivel de Actividad:</strong> {{ user.profile.get_nivelactividad_display}} </h3><br>
+<p class="title is-4">Calorías por macronutrientes</p>
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calorías de Proteínas</p>
+      <p class="title">{{ user.profile.proteinas_necesarias}} </p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calorías de Grasas</p>
+      <p class="title">{{ user.profile.grasas_necesarias}}</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Calorías de carbohidratos</p>
+      <p class="title">{{ user.profile.carbos_necesarios}} </p>
+    </div>
+  </div>
+
+</nav>
+
 &nbsp
     <ul>
       <li><a href="{% url 'home' %}">Inicio</a></li>

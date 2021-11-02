@@ -1,38 +1,132 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% if messages %}
-    {% for message in messages %}
-    <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %}">
-        <button class="delete"></button>
-        {{ message }}
-    </div>
-    {% endfor %}
-{% endif %}
-    {% if user.is_authenticated %}
-    <h3> Hola {{ user.get_full_name }} </h3>
-    <p>
-      <a href="{% url 'perfil' user.pk %}">Mi Perfil</a>
-    </p>
-    <p>
-      <a href="{% url 'logout' %}">Cierra Sesion</a>
-    </p>
-    <p>
-      <a href="{% url 'menu-detail' %}">Compra un Plan Nutricional</a>
-    </p>
-    <p>
-      <a href="{% url 'menu-list' %}">Mira tus planes nutricionales</a>
-    </p>
-    <p>
-      <a href="{% url 'last-menu-cliente' user.pk %}">Mira tu último plan comprado</a>
-    </p>
+
+
+
+ {% if user.is_authenticated %}
+
+<h1  class="title"><center>
+      Creamos tu plan de alimentación ideal <br>
+      Por menos de S/1.2 al día</center>
+    </h1>
+<div class="container">
+  <center> <a href="{% url 'menu-detail' %} " class='button  is-success' > Compra un Plan Nutricional </a> </center>
+</div>
+
     {% else %}
-    <h3> Hola </h3>
-    <p>
-      <a href="{% url 'login' %}">Inicia Sesion</a> o
-      <a href="{% url 'register' %}">Registrate</a>
-    </p>
+
     {% endif %}
+&nbsp
+
+<h1 class="title is-size-4 "> Nuestros nutriconistas </h1>
+<div class="container">
+    <div class="columns is-two-fifths">
+      <div class="column">
+        <div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="https://us.123rf.com/450wm/olegdudko/olegdudko1511/olegdudko151104808/47578459-nutricionista-.jpg?ver=6" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4">John Smith</p>
+        <p class="subtitle is-6">@johnsmith</p>
+      </div>
+    </div>
+    <div class="content">
+      Nutricionista con más de 10 años de experiencia en la elaboración de dietas para las persoans que buscan variedad y salud en su menú. <a>@bulmaio</a>.
+      <br>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="column">
+ <div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="https://s28461.pcdn.co/wp-content/uploads/iStock_demaerre-_512051072.jpg" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4">John Smith</p>
+        <p class="subtitle is-6">@johnsmith</p>
+      </div>
+    </div>
+    <div class="content">
+      Nutriconista con más de 7 años especializada en la creación de dietas para los deportistas más exigentes. <a>@bulmaio</a>.
+      <br>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+</div>
 
 &nbsp
+
+<h1 class="title is-size-4 "> Comentarios de nuestros clientes </h1>
+
+<div class="container">
+    <div class="columns">
+  <div class="column">
+    <div class="card">
+  <div class="card-content">
+    <p class="subtitle">
+      “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+    </p>
+    <p class="subtitle">
+      Diego Chi Yep
+    </p>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="card">
+  <div class="card-content">
+    <p class="subtitle">
+      “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+    </p>
+    <p class="subtitle">
+      Jose Chau
+    </p>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="card">
+  <div class="card-content">
+    <p class="subtitle">
+      “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+    </p>
+    <p class="subtitle">
+      Diana Gutierrez
+    </p>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="card">
+  <div class="card-content">
+    <p class="subtitle">
+      “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+    </p>
+    <p class="subtitle">
+      Ximena Torres
+    </p>
+  </div>
+</div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+
 {% endblock %}
