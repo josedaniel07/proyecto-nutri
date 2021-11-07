@@ -99,7 +99,7 @@ class Menu(models.Model):
     estado = models.CharField(max_length=10, default='No Pagado')
     menu = []
     def precio(self):
-        base = 30
+        base = 8.7
         dias = self.fecha_fin - self.fecha_creacion
         meses = dias.days / 30
         if (meses<=1):
