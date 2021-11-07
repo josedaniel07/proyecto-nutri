@@ -25,6 +25,7 @@
     <li> <a href="{% url 'perfil' user.pk %}" >Perfil: {{ user.get_full_name }} </a> </li>
     <li><a href="{% url 'menu-list' %}">Planes Nutricionales</a></li>
     <li><a href="{% url 'last-menu-cliente' user.pk %}">Último Plan Nutricional</a></li>
+    <li><a href="{% url 'dudas'  %}">Dudas Frecuentes</a></li>
     <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
   </ul>
 </div>
@@ -45,3 +46,10 @@
     </div>
   </section>
   </body>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+Para contactar con soporte llamar a +51 923845621 o escribir al correo nutri+@ayudanutri.com
+    </p>
+  </div>
+</footer>

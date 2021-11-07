@@ -172,3 +172,6 @@ class UltimoMenuCliente(DetailView):
     # Obtén/Crea un/el pedido en proceso (EP) del usuario
     menu = Menu.objects.filter(profile=user_profile, estado='Pagado').last()
     return menu
+
+class DudasView(TemplateView):
+  template_name = "main/dudas.html"

@@ -2,14 +2,177 @@
 
 {% block content %}
 
-<form class="form" method="post">
+<form  method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+
+
+    <div class="field">
+        <label class="label" for="id_username">Usuario:</label>
+        <div class="control">
+            <input class="input" required id="id_username" type="text" placeholder="Username" name="username">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="id_first_name">Nombres:</label>
+        <div class="control">
+            <input class="input" id="id_first_name" type="text" placeholder="Nombres" name="first_name">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="id_last_name">Apellidos:</label>
+        <div class="control">
+            <input class="input" id="id_last_name" type="text" placeholder="Apellido" name="last_name">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="id_email">Email:</label>
+        <div class="control">
+            <input class="input" required id="id_email" type="email" placeholder="Email" name="email">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="id_documento_identidad">Documento de identidad:</label>
+        <div class="control">
+            <input class="input" id="id_documento_identidad" type="text" placeholder="DNI" name="documento_identidad" maxlength="8">
+        </div>
+    </div>
+
+    <div class="content">
+    <div class="columns">
+
+        <div class="column is-narrow">
+            <div class="field">
+                <label class="label" for="id_genero">Género:</label>
+                <div class="control">
+                    <div class="select">
+                        <select name="genero" id="id_genero">
+                            <option value="MA">Masculino</option>
+                            <option value="FE">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="content">
+    <div class="columns">
+
+        <div class="column is-2">
+            <div class="field">
+                <label class="label" for="id_peso">Peso:</label>
+                <div class="control">
+                    <input class="input" id="id_peso" type="text" name="peso" placeholder="64">
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-2">
+            <div class="field">
+                <label class="label" for="id_talla">Talla:</label>
+                <div class="control">
+                    <input class="input" id="id_talla" type="text" name="talla" placeholder="170">
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-2">
+            <div class="field">
+                <label class="label" for="id_edad">Edad:</label>
+                <div class="control">
+                    <input class="input" id="id_edad" type="text" name="edad" placeholder="27">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+
+    <div class="content">
+    <div class="columns">
+
+        <div class="column is-narrow">
+            <div class="field">
+                <label class="label" for="id_nivelactividad">Nivel de Actividad</label>
+                <div class="control">
+                    <div class="select">
+                        <select name="nivelactividad" id="id_nivelactividad">
+                            <option value="1.2">No muy Activo</option>
+                            <option value="1.375">Medianamente Activo</option>
+                            <option value="1.55">Activo</option>
+                            <option value="1.72">Muy Activo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="column is-narrow">
+            <div class="field">
+                <label class="label" for="id_alimentacion">Tipo de Alimentación</label>
+                <div class="control">
+                    <div class="select">
+                        <select name="alimentacion" id="id_alimentacion">
+                                <option value="1">Vegana</option>
+                            <option value="2">Vegetariana</option>
+                            <option value="3">Carne</option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="column is-narrow">
+            <div class="field">
+                <label class="label" for="id_objetivo">Objetivo</label>
+                <div class="control">
+                    <div class="select">
+                        <select name="objetivo" id="id_objetivo">
+                                <option value="-500">Bajar de peso</option>
+                            <option value="0">Mantener tu peso</option>
+                            <option value="500">Subir de peso</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="id_password">Contraseña:</label>
+        <div class="control">
+            <input class="input" id="id_password" type="password" placeholder="Contraseña" name="password1">
+        </div>
+        <div class="content is-small">
+            <ul>
+                <li>Su contraseña no puede ser similar a otra información personal.</li>
+                <li>Su contraseña debe contener al menos 8 caracteres.</li>
+                <li>Su contraseña no puede ser una contraseña común.</li>
+                <li>Su contraseña no puede ser solo númerica.</li>
+            </ul>
+        </div>
+
+        <label class="label" for="id_password2">Confirme su contraseña:</label>
+        <div class="control">
+            <input class="input" id="id_password2" type="password" placeholder="Confirme su contraseña" name="password2">
+        </div>
+    </div>
+
 
     <div class="field-body">
         <div class="field">
             <div class="control">
-                <input style="background-color: #F6610D;" class="button is-link" type="submit" value="Registrarse">
+                <input style="is-success" class="button is-link" type="submit" value="Registrarse">
                 <input type="hidden" name="next" value="{% url 'home'%}">
             </div>
         </div>

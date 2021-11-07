@@ -123,26 +123,48 @@ class Menu(models.Model):
             for plato in range(6):
                 comida=Plato.objects.filter(categoria__codigo=plato+1).order_by('?').last()
                 self.menu[dia].append(comida)
-        return self.menu
-    def menu_del_dia(self):
-        return self.menu[0]
+        nada=0
+        return nada
 
     def desayuno(self):
-        return self.menu_del_dia()[0]
+        return self.menu[0][0]
     def media_mañana(self):
-        return self.menu_del_dia()[1]
+        return self.menu[0][1]
     def comida(self):
-        return self.menu_del_dia()[2]
+        return self.menu[0][2]
     def merienda(self):
-        return self.menu_del_dia()[3]
+        return self.menu[0][3]
     def cena(self):
-        return self.menu_del_dia()[4]
+        return self.menu[0][4]
     def recena(self):
-        return self.menu_del_dia()[5]
-    #Borrar cuadno ya funcione el menu
-    def largo(self):
-        lista = Plato.objects.filter(categoria__codigo=6).order_by('?').last()
-        return lista
+        return self.menu[0][5]
+
+    def desayuno2(self):
+        return self.menu[1][0]
+    def media_mañana2(self):
+        return self.menu[1][1]
+    def comida2(self):
+        return self.menu[1][2]
+    def merienda2(self):
+        return self.menu[1][3]
+    def cena2(self):
+        return self.menu[1][4]
+    def recena2(self):
+        return self.menu[1][5]
+
+    def desayuno3(self):
+        return self.menu[2][0]
+    def media_mañana3(self):
+        return self.menu[2][1]
+    def comida3(self):
+        return self.menu[2][2]
+    def merienda3(self):
+        return self.menu[2][3]
+    def cena3(self):
+        return self.menu[2][4]
+    def recena3(self):
+        return self.menu[2][5]
+
     def __str__(self):
         return f'Menú de {self.profile.user.get_username()} - {self.fecha_creacion}'
 

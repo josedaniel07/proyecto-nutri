@@ -24,10 +24,10 @@ class UserForm(UserCreationForm):
     ]
     genero = forms.ChoiceField(choices=GENERO_CHOICES)
     # Nivel de actividad
-    BAJAACTIVIDAD = 1
-    MEDACTIVIDAD = 2
-    ACTIVO = 3
-    MUYACTIVO = 4
+    BAJAACTIVIDAD = 1.2
+    MEDACTIVIDAD = 1.375
+    ACTIVO = 1.55
+    MUYACTIVO = 1.72
     ACTIVO_CHOICES = [
         (BAJAACTIVIDAD, 'No Muy Activo'),
         (MEDACTIVIDAD, 'Medianamente Activo'),
@@ -40,9 +40,9 @@ class UserForm(UserCreationForm):
     VEGANO = 1
     CARNE = 3
     ALIMENTACION_CHOICES = [
-        (VEGETARIANO, 'Opción Vegana'),
-        (VEGANO, 'Opción Vegetariana'),
-        (CARNE, 'Opción con Carne'),
+        (VEGETARIANO, 'Vegana'),
+        (VEGANO, 'Vegetariana'),
+        (CARNE, 'Carne')
     ]
     alimentacion = forms.ChoiceField(choices=ALIMENTACION_CHOICES)
     objetivo = forms.ChoiceField(choices=OBJETIVO_CHOICES)

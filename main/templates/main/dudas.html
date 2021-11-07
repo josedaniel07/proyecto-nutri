@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+  <div class="card-content">
+    <p class="title">
+      ¿Cómo calculan las colorías que necesito?
+    </p>
+    <p class="subtitle">
+        Utilizamos una fórmula dependiendo del género de la persona.<br>
+      Hombres: TMB = 66 + (13,7 x peso en kg) + (5 x altura en cm) - (6,75 x edad en años) <br>
+Mujeres: TMB = 655 + (9,6 x peso en kg) + (1.8 x altura en cm) - (4,7 x edad en años)
+    </p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <p class="title">
+      ¿Quiénes se encargan de crear las dietas?
+    </p>
+    <p class="subtitle">
+        Las dietas las armas el sistema de forma automática. Sin embargo, contamos con un equipo de dos nutricionistas que se encargan mes a mes de verificar que los platos que ofrecemos son saludables.
+    </p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <p class="title">
+      ¿Ustedes venden los platos que ofrecen?
+    </p>
+    <p class="subtitle">
+        No. No obstante, cada plato tiene un proveedor el cual es un establecimiento donde puede encontrar todos los ingredientes necesarios para cocinar el plato.
+    </p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <p class="title">
+      ¿Donde los puedo contactar?
+    </p>
+    <p class="subtitle">
+        Puede contactarnos por los siguientes medios:<br>
+        Teléfono: +51 923845621<br>
+        Correo: nutri+@ayudanutri.com
+    </p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    <ul>
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+    </ul>
+
+
+{% endblock %}

@@ -17,4 +17,5 @@ urlpatterns = [
     path('menu_list/', views.MenuListView.as_view(), name='menu-list'),
     path('menu_cliente/<int:pk>', views.MenuCliente.as_view(), name='menu-cliente'),
     path('last_menu_cliente/<int:pk>', views.UltimoMenuCliente.as_view(), name='last-menu-cliente'),
+    path('dudas', views.DudasView.as_view(), name='dudas'),
 ]
